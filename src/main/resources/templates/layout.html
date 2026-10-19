@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:replace="~{::title}">RBAC System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script th:src="@{/js/app.js}"></script>
+</head>
+<body>
+    <!-- Header fragment -->
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <!-- Sidebar fragment -->
+        <nav class="sidebar" th:replace="fragments/sidebar :: sidebar"></nav>
+        <!-- Main content area -->
+        <main class="content" th:insert="~{::section}"></main>
+    </div>
+    <!-- Footer fragment -->
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

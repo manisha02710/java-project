@@ -1,0 +1,8 @@
+<!-- Header fragment -->
+<header class="header">
+    <h1>RBAC Management System</h1>
+    <div class="user-info">
+        <span th:text="${sessionUser.fullName}">User Name</span>
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+</header>

@@ -1,0 +1,171 @@
+/* src/main/resources/static/css/style.css */
+/* Simple, responsive UI for the RBAC system */
+
+:root {
+    --primary-color: #0069d9;
+    --primary-dark: #0053aa;
+    --bg-color: #f5f7fa;
+    --header-bg: #ffffff;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #ecf0f1;
+    --footer-bg: #ffffff;
+    --border-radius: 8px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header.header {
+    background: var(--header-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+header .user-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+nav.sidebar {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    width: 220px;
+    min-width: 200px;
+    padding-top: 1rem;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+nav.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.sidebar li {
+    margin: 0;
+}
+
+nav.sidebar a {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    color: var(--sidebar-text);
+    text-decoration: none;
+}
+
+nav.sidebar a.active,
+nav.sidebar a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+main.content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+footer.footer {
+    background: var(--footer-bg);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+table th, table td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Forms */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+form .form-group {
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+.alert {
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.alert-success {background: #dff0d8; color: #3c763d;}
+.alert-error   {background: #f2dede; color: #a94442;}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav.sidebar {width: 60px;}
+    nav.sidebar a {text-align: center; padding: 0.8rem 0;}
+    nav.sidebar a::after {content: attr(title); display: block; font-size: 0.8rem;}
+    main.content {padding: 1rem;}
+}

@@ -1,0 +1,21 @@
+<!-- Sidebar fragment -->
+<nav class="sidebar">
+    <ul>
+        <!-- Dashboard always visible -->
+        <li><a th:href="@{/}" th:classappend="${#strings.contains(#request.requestURI,'/') ? 'active' : ''}">Dashboard</a></li>
+        <!-- Users admin (requires USER_READ) -->
+        <li th:if="${sessionUser.permissions.contains('USER_READ')}"><a th:href="@{/admin/users}" th:classappend="${#strings.contains(#request.requestURI,'/admin/users') ? 'active' : ''}">Users</a></li>
+        <!-- Roles admin (requires ROLE_READ) -->
+        <li th:if="${sessionUser.permissions.contains('ROLE_READ')}"><a th:href="@{/admin/roles}" th:classappend="${#strings.contains(#request.requestURI,'/admin/roles') ? 'active' : ''}">Roles</a></li>
+        <!-- Permissions admin (requires PERMISSION_ASSIGN) -->
+        <li th:if="${sessionUser.permissions.contains('PERMISSION_ASSIGN')}"><a th:href="@{/admin/permissions}" th:classappend="${#strings.contains(#request.requestURI,'/admin/permissions') ? 'active' : ''}">Permissions</a></li>
+        <!-- Faculty views -->
+        <li th:if="${sessionUser.permissions.contains('STUDENT_READ')}"><a th:href="@{/faculty/students}" th:classappend="${#strings.contains(#request.requestURI,'/faculty/students') ? 'active' : ''}">Students</a></li>
+        <!-- Student self pages -->
+        <li th:if="${sessionUser.permissions.contains('OWN_PROFILE_VIEW')}"><a th:href="@{/student/profile}" th:classappend="${#strings.contains(#request.requestURI,'/student/profile') ? 'active' : ''}">My Profile</a></li>
+        <li th:if="${sessionUser.permissions.contains('OWN_MARKS_VIEW')}"><a th:href="@{/student/marks}" th:classappend="${#strings.contains(#request.requestURI,'/student/marks') ? 'active' : ''}">My Marks</a></li>
+        <li th:if="${sessionUser.permissions.contains('OWN_ATTENDANCE_VIEW')}"><a th:href="@{/student/attendance}" th:classappend="${#strings.contains(#request.requestURI,'/student/attendance') ? 'active' : ''}">My Attendance</a></li>
+        <!-- Audit logs (available to any user with AUDIT_VIEW) -->
+        <li th:if="${sessionUser.permissions.contains('AUDIT_VIEW')}"><a th:href="@{/audit}" th:classappend="${#strings.contains(#request.requestURI,'/audit') ? 'active' : ''}">Audit Logs</a></li>
+    </ul>
+</nav>
