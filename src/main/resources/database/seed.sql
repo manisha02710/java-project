@@ -120,10 +120,10 @@ SELECT r.role_id, p.permission_id FROM roles r JOIN permissions p ON p.permissio
 
 -- Insert users with placeholder password hashes
 INSERT INTO users (username, password_hash, full_name, email, is_active) VALUES
-('admin', '{bcrypt_placeholder}', 'Admin User', 'admin@example.com', TRUE),
-('faculty', '{bcrypt_placeholder}', 'Faculty User', 'faculty@example.com', TRUE),
-('student1', '{bcrypt_placeholder}', 'Student One', 'student1@example.com', TRUE),
-('student2', '{bcrypt_placeholder}', 'Student Two', 'student2@example.com', TRUE);
+('admin', '$2a$10$Ck9J8g1QeFzM2sHhV0LXeO2Yl9K4c3b5d7f6g8h0j1k2l3m4n5o6p', 'Admin User', 'admin@example.com', TRUE),
+('faculty', '$2a$10$7EqJtq98hPqEX7fNZaFWV.Y6hM1QfQn4wCk/8YxA5a2VYV9aQ5K5K', 'Faculty User', 'faculty@example.com', TRUE),
+('student1', '$2a$10$D1URzoVw/1vj5OeqnOy1R.eAAZUmVr6iO/se3o9iIgQwMMIEH6Xk2', 'Student One', 'student1@example.com', TRUE),
+('student2', '$2a$10$huSqz7wQBIo0L3pxa/jtQuRcudQa36FwQiena.UZiVafpdEnphMOW', 'Student Two', 'student2@example.com', TRUE);
 
 -- Assign roles to users
 INSERT INTO user_roles (user_id, role_id)
