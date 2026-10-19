@@ -8,11 +8,11 @@ import java.util.List;
  * // OOP: Inheritance – extends BaseEntity.
  */
 public class Role extends BaseEntity {
-    // OOP: Encapsulation
+    // OOP: Encapsulation – private fields with public accessors.
     private String roleName;
     private String description;
-    // Store permission IDs for simplicity
-    private List<Long> permissionIds; // OOP: Polymorphism when loading Permission objects
+    // Store permission ids for simplicity; a real app would map to Permission objects.
+    private List<Long> permissionIds; // OOP: Polymorphism when handling Permission objects.
 
     public Role() {
         super();

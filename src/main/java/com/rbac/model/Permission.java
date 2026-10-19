@@ -3,11 +3,11 @@ package com.rbac.model;
 import java.time.LocalDateTime;
 
 /**
- * Permission entity representing a single permission.
+ * Permission entity representing a single permission that can be granted to roles.
  * // OOP: Inheritance – extends BaseEntity.
  */
 public class Permission extends BaseEntity {
-    // OOP: Encapsulation
+    // OOP: Encapsulation – private fields.
     private String permissionName;
     private String description;
 

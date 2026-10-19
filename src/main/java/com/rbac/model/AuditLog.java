@@ -3,29 +3,21 @@ package com.rbac.model;
 import java.time.LocalDateTime;
 
 /**
- * AuditLog entity capturing actions performed in the system.
- * // OOP: Inheritance – extends BaseEntity to reuse id and createdAt.
+ * AuditLog entity representing an action performed in the system.
+ * // OOP: Inheritance – extends BaseEntity.
  */
 public class AuditLog extends BaseEntity {
-    // OOP: Encapsulation – private fields with getters/setters.
-    private Long userId; // nullable – system actions may have no user.
+    // OOP: Encapsulation – private fields.
+    private Long userId; // Nullable: system actions may have no user.
     private String action;
     private String details;
-    private Status status;
-
-    /**
-     * Enumeration of possible audit outcomes.
-     */
-    public enum Status {
-        SUCCESS,
-        DENIED
-    }
+    private AuditStatus status;
 
     public AuditLog() {
         super();
     }
 
-    public AuditLog(Long id, LocalDateTime createdAt, Long userId, String action, String details, Status status) {
+    public AuditLog(Long id, LocalDateTime createdAt, Long userId, String action, String details, AuditStatus status) {
         super(id, createdAt);
         this.userId = userId;
         this.action = action;
@@ -57,11 +49,11 @@ public class AuditLog extends BaseEntity {
         this.details = details;
     }
 
-    public Status getStatus() {
+    public AuditStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(AuditStatus status) {
         this.status = status;
     }
 }
